@@ -1,0 +1,52 @@
+Lista de Exercicios 1
+
+Abra BaseAppOGL.sln no Visual Studio e selecione Debug e x64.
+O projeto usa o toolset v145 e C++20, como na configuracao original de Debug.
+O diretorio de trabalho do depurador esta definido como a pasta do projeto.
+
+F1: boneco de neve com balanco de 45 graus entre os extremos, arvores e neve.
+F2: cinco pilhas de ate dez cubos, com um cubo de tamanho 1 a cada segundo.
+As cores e a escolha de uma pilha livre sao aleatorias. Ao completar as cinco
+pilhas, a simulacao recomeca no proximo intervalo de geracao.
+F3: casa com atlas de textura, caixas e terreno texturizados.
+F4: casa carregada de Assets/Casa.txt, com a textura CasaTex.jpg.
+As teclas 0, 1, 5, 6 e 7 continuam selecionando as cenas originais.
+
+WASD move a camera. Q e E descem e sobem. Shift aumenta a velocidade.
+O mouse orienta a camera e o scroll altera o zoom.
+Tab libera ou captura o cursor. Espaco pausa. R reinicia. C restaura a camera.
+Caps Lock alterna o aramado. V alterna o VSync. Esc fecha a aplicacao.
+
+As cenas usam CSceneBase, CCamera, CShader, CTextures e CPrimitives.
+As primitivas da engine substituem a biblioteca GLAUX citada no enunciado.
+Os recursos da lista foram copiados para Assets, evitando caminhos com acentos.
+O carregador le cinco numeros por vertice: X, Y, Z, U e V.
+Ele valida os triangulos, calcula as normais e envia a geometria para a GPU.
+
+Dependencias da configuracao original
+
+O projeto usa automaticamente este SDK quando OpenGL_SDK nao esta definida:
+C:\Users\renan\Desktop\OpenGL_SDK\OpenGL_SDK
+
+Para usar outro SDK, defina a propriedade ou variavel OpenGL_SDK.
+A raiz do SDK deve conter estas pastas:
+GLFW/include e GLFW/lib
+glew/include e glew/lib
+GLM e glm/lib
+Assimp/include e assimp/lib
+freetype/include e freetype/lib
+
+Debug x64 usa glfw3.lib, glew32d.lib, assimp-vc145-mtd.lib, glm.lib,
+freetype.lib e opengl32.lib. As DLLs de GLEW, Assimp e FreeType sao copiadas
+automaticamente para bin/Debug durante a compilacao.
+Se o projeto ja estiver aberto no Visual Studio, aceite recarregar o projeto.
+A configuracao validada e Debug x64; o SDK fornecido possui bibliotecas Debug.
+
+Validacao nesta maquina
+
+Os arquivos de projeto foram lidos como XML, os recursos foram conferidos
+e Casa.txt possui 204 vertices, formando 68 triangulos validos.
+Compilacao Debug x64 concluida com sucesso com o MSBuild do Visual Studio.
+As quatro cenas foram renderizadas em uma janela oculta, sem erros de OpenGL.
+Os shaders e as texturas foram carregados e as imagens conferidas.
+O empilhamento foi executado por 50 intervalos, completando as cinco pilhas.
